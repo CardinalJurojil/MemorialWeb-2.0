@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JIIIIL</title>
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+
+<body style="background-image: url('{% static "images/background.png" %}')  " >
+ {% include 'app/navbar.html' %}
+
+    {% block content%}
+
+    {% endblock content %}
+
+    <script src="{% static 'js/base.js' %}">
+
+    </script>
+
+</body>
+</html>

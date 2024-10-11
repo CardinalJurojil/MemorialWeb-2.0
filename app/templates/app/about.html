@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+<!--{% load static %}-->
+
+{% block content %}
+<!-- <link rel="stylesheet" href="{% static 'css/base.css' %}">-->
+
+<div class="text" id="text">
+  <h1>ABOUT PAGE</h1>
+
+  <p> THIS PAGE IS ABOUT CANCER ZODIAC SIGN A CARDINAL WATER SIGN</p>
+    <p> REPRESENTED BY THE CRAB, THIS OCEANIC CRUSTACEAN SEAMLESSLY</p>
+    <p> WEAVES BETWEEN THE SEA AND SHORE, REPRESENTING CANCER'S ABILITY</p>
+    <p> TO EXIST IN BOTH EMOTIONAL AND MATERIAL REALMS</p>
+
+
+  <img alt="Cancer" class="mycancer" id="image" src="{% static 'images/Penguin.jpg' %}">
+
+</div>
+
+
+    <input id="picPath" type="hidden" value="{% static 'images/cancer_image.jpg' %}">
+    <input id="imagePath" type="hidden" value="{% static 'images/Penguin.jpg' %}">
+
+{% endblock content %}
+
+
