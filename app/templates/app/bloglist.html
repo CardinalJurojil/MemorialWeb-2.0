@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<a href="{% url 'blogscreate' %}">+ New Blog Post</a>
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<table class="container">
+    <tbody>
+        {% for memorial in memorial %}
+            <tr class="memorial-entry">
+                <td><a href="{% url 'blogsdetail' memorial.pk %}">{{ memorial.firstname }},{{ memorial.lastname }}</a></td>
+                {% if memorial.image %}
+                    <img src="{{memorial.image.url}}">
+                {%else %}
+                    <p>No Image</p>
+                {% endif%}
+            </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

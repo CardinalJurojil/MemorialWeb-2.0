@@ -1,18 +1,20 @@
 {% extends 'app/base.html' %}
 {% load static %}
 
-
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
 
 
- <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <div class="text">
-  <h1> HOMEPAGEEEEEE</h1>
-  <p>THIS IS A HOMEPAGE.</p>
-   <img  class="mylogo" src= "{% static 'images/favicon.png' %}">
-  </div>
 
+    <div class="text">
+        <h1>Welcome to My Homepage</h1>
+        <p>This is a simple homepage created using Django.</p>
+        <img class="mylogo" src="{% static 'images/favicon.png' %}" alt="Logo">
+        <a href="#" class="cta-button">Get Started</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
+</div>
 {% endblock content %}
-
-
-

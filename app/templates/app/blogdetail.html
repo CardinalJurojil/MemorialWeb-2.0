@@ -1,0 +1,24 @@
+<div class="memorial-entry">
+    <h2>{{ memorial.firstname }} {{ memorial.lastname }}</h2>
+    <p>{{ memorial.biography }}</p>
+    {% if memorial.image %}
+        <img src="{{ memorial.image.url }}" alt="{{ memorial.firstname }} {{ memorial.lastname }}">
+    {% else %}
+        <p>No image</p>
+    {% endif %}
+</div>
+
+<div class="photo-gallery">
+    <h3>Photos</h3>
+    {% if memorial.photos.all %}
+        {% for photo in memorial.photos.all %}
+            <img src="{{ photo.image.url }}" alt="Photo for {{ memorial.firstname }}">
+        {% endfor %}
+    {% else %}
+        <p>No photos uploaded.</p>
+    {% endif %}
+</div>
+
+<a href="{% url 'addphoto' memorial.pk %}">Add Photo</a>
+<a href="{% url 'blogsupdate' memorial.pk %}">Edit</a>
+<a href="{% url 'blogsdelete' memorial.pk %}">Delete Blog</a>
