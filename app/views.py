@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
-from .models import Memorial,Photo
+from .models import Memorial,Photo, Tag
 from django.shortcuts import get_object_or_404
 from django import forms
 from .forms import PhotoForm
+from django.contrib.auth.models import User
 
 
 class HomePageView(TemplateView):
@@ -26,8 +27,14 @@ class BlogDetailView(DetailView):
 
 class BlogCreateView(CreateView):
     model = Memorial
-    fields = ['user','firstname','lastname','dateofbirth','dateofdeath', 'biography','image']
+    fields = ['user','firstname','lastname','dateofbirth','dateofdeath', 'biography', 'tags','image']
     template_name = 'app/blogcreate.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['users'] = User.objects.all()
+        context['tags'] = Tag.objects.all()
+        return context
 
 class BlogUpdateView(UpdateView):
         model = Memorial
