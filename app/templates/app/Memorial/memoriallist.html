@@ -1,0 +1,43 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<a href="{% url 'Memorialcreate' %}">+ New Blog Post</a>
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+
+
+
+ <div class="card-container">
+<form method="get" action="{% url 'Memorial' %}">
+    <label>
+        <input type="text" name="q" placeholder="Search....." value="{{ search_query }}">
+    </label>
+    <input type="submit" value="Search">
+</form>
+
+    {% for memorial in memorial %}
+
+        <div class="post-container ">
+
+             <h3 class="memorial-entry">
+                           <a href="{% url 'Memorialdetail' memorial.pk %}">{{ memorial.firstname }},{{ memorial.lastname }}</a>
+                        {% if memorial.image %}
+                           <img src="{{memorial.image.url}}" alt="{{memorial.firstname}}., {{memorial.lastname}}">
+                       {%else %}
+                            <p>No Image</p>
+                        {% endif%}
+             </h3>
+
+        </div>
+
+        {% empty %}
+        <p>No posts available.</p>
+        <p>No Memorials found matching your search</p>
+
+    {% endfor %}
+
+ </div>
+
+{% endblock content %}

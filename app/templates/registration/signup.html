@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Login</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="container">
+    <label for="username">Username</label>
+    <input type="text" placeholder="Enter Your Username" name="username" required>
+    <br>
+    <br>
+     <label for="password1">Password</label>
+    <input type="password" placeholder="Enter Your Password" name="password1" required>
+    <br>
+    <br>
+     <label for="password2">Password</label>
+    <input type="password" placeholder="Re-enter Your Password" name="password2" required>
+
+  </div>
+  <button type="submit">Log In</button>
+</form>
+{% endblock content %}

@@ -8,5 +8,3 @@ admin.site.register(Tag)
 admin.site.register(Photo)
 admin.site.register(Message)
 
-
-

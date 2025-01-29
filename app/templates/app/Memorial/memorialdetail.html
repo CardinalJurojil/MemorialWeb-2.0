@@ -1,0 +1,59 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+
+<div class="memorial-entry">
+    <h2>{{ memorial.firstname }} {{ memorial.lastname }}</h2>
+    <p>{{ memorial.biography }}</p>
+    {% if memorial.image %}
+        <img src="{{ memorial.image.url }}" alt="{{ memorial.firstname }} {{ memorial.lastname }}">
+    {% else %}
+        <p>No image</p>
+    {% endif %}
+</div>
+
+
+<a href="{% url 'Memorialupdate' memorial.pk %}">Edit</a>
+<a href="{% url 'Memorialdelete' memorial.pk %}">Delete Blog</a>
+
+<div class="photo-gallery">
+    <h3>Photos</h3>
+    {% for photo in memorial.photos.all %}
+        <div class="photo-entry">
+            {% if photo.image %}
+                <img src="{{ photo.image.url }}">
+                <a href="{% url 'Photoupdate' memorial.pk photo.pk %}">Edit Photo</a>
+                <a href="{% url 'Photodelete' memorial.pk photo.pk %}">Delete Photo</a>
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+<a href="{% url 'addphoto' memorial.pk %}">Add Photo</a>
+
+ <form method="POST" action="{% url 'Messagecreate' memorial.pk %}">
+            {% csrf_token %}
+            <textarea name="content" placeholder="WRITE A MESSAGE..." required></textarea>
+            <input type="submit" value="Submit">
+        </form>
+
+ <hr>
+
+        {% if not memorial.messages.all %}
+            <p>No Message </p>
+        {% endif %}
+        {% for message in memorial.messages.all %}
+            <hr>
+            <p><strong>{{ message.user }}</strong> - {{ message.dateposted }}</p>
+            <p>{{ message.content }}</p>
+            <a href="{% url 'Messageupdate' memorial.pk message.pk %}" class="btn">Edit Message</a>
+            <a href="{% url 'Messagedelete' memorial.pk message.pk %}" class="btn">Delete Message</a>
+        {% endfor %}
+
+{% endblock content %}
+

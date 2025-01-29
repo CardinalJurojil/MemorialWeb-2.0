@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+{% block content %}
+
+<div class="main-content">
+    <form method="post" action="{% url 'Messagecreate' memorial.pk %}" class="form" >
+        <h1>New Comment</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" class="input_button">
+        <a href="{% url 'Memorial' %}" class="input_button">Cancel</a>
+    </form>
+</div>
+
+{% endblock content %}
+

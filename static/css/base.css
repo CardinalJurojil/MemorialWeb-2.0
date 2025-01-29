@@ -128,3 +128,8 @@ th, td {
 th {
     background-color: #f2f2f2; /* Light gray background for header */
 }
+
+img{
+    width: 500px;
+    height: 500px;
+}

@@ -1,0 +1,10 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <form method="POST" class="formm">
+        {% csrf_token %}
+        <h1>Delete Review</h1>
+        <p style="color: black">Are you sure you want to delete the comment "{{ object.content }}" by {{ object.user }}?</p>
+        <input type="submit" value="Delete" class="input_button">
+        <a href="{% url 'Memorialdetail' object.Memorial.pk %}" class="input_button">Cancel</a>
+    </form>
+{%  endblock content %}

@@ -10,7 +10,19 @@
 </head>
 
 <body style="background-image: url('{% static "images/backgroundmemorial.jpg" %}' )  " >
- {% include 'app/navbar.html' %}
+    {% include 'app/navbar.html' %}
+
+
+    {% if user.is_authenticated %}
+    <p> Hi {{user.username}}</p>
+    <form method="post" action="{% url 'logout' %} " >
+          {% csrf_token %}
+        <input type="submit" value="Logout">
+     </form>
+    {% else %}
+    <p> You are not Login</p>
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
 
     {% block content%}
 

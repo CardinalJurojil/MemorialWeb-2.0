@@ -1,0 +1,84 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <title>New Post</title>
+
+    <form action="{% url 'Memorialcreate' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h1>NEW MEMORIAL</h1>
+
+        <div>
+            <label for="id_user">Created By:</label>
+            <select id="id_user" name="user">
+                {% for user in users %}
+                    <option value="{{ user.pk }}" {% if user.pk == form.user.value %} selected {% endif %}>
+                        {{ user }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="id_firstname">Firstname</label>
+            <input type="text" id="id_firstname" name="firstname" value="{{ form.firstname.value }}">
+            {% if form.firstname.errors %}
+                <div class="error">{{ form.firstname.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_lastname">Lastname</label>
+            <input type="text" id="id_lastname" name="lastname" value="{{ form.lastname.value }}">
+            {% if form.lastname.errors %}
+                <div class="error">{{ form.lastname.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_dateofbirth">Date of Birth</label>
+            <input type="date" id="id_dateofbirth" name="dateofbirth" value="{{ form.dateofbirth.value }}">
+            {% if form.dateofbirth.errors %}
+                <div class="error">{{ form.dateofbirth.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_dateofdeath">Date of Death</label>
+            <input type="date" id="id_dateofdeath" name="dateofdeath" value="{{ form.dateofdeath.value }}">
+            {% if form.dateofdeath.errors %}
+                <div class="error">{{ form.dateofdeath.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_biography">Biography</label>
+            <textarea id="id_biography" name="biography">{{ form.biography.value }}</textarea>
+            {% if form.biography.errors %}
+                <div class="error">{{ form.biography.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_tags">Tags</label>
+            <select id="id_tags" name="tags" multiple>
+                {% for tag in tags %}
+                    <option value="{{ tag.pk }}" {% if tag.pk in form.tags.value %} selected {% endif %}>
+                        {{ tag }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="id_image">Image</label>
+            <input type="file" id="id_image" name="image" accept="image/*">
+            {% if form.image.errors %}
+                <div class="error">{{ form.image.errors }}</div>
+            {% endif %}
+        </div>
+
+        <input type="submit" value="Save" class="input_button">
+    </form>
+{% endblock content %}
