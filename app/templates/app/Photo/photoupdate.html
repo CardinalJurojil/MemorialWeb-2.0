@@ -6,22 +6,11 @@
 <form action="{% url 'Photoupdate' memorial_pk=memorial.pk pk=object.pk %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
-    <label for="photo_id">Select Photos to Update:</label>
-    <select name="photo_ids" id="photo_id" multiple>
-        {% for photo in memorial.photos.all %}
-            <option value="{{ photo.pk }}">{{ photo.image.url }}</option>
-        {% endfor %}
-    </select>
-
     <div>
         <label for="image">New Images:</label>
         <input type="file" id="image" name="image" accept="image/*" multiple>
     </div>
 
-    <div>
-        <label for="datepost">Date Posted:</label>
-        <input type="date" id="datepost" name="datepost">
-    </div>
 
     <input type="submit" value="Update">
 </form>

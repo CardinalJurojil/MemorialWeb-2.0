@@ -14,7 +14,8 @@
 
 
     {% if user.is_authenticated %}
-    <p> Hi {{user.username}}</p>
+    <a href="{% url 'profile' %}" class="logo-container">
+        <p> Hi {{user.username}}</p></a>
     <form method="post" action="{% url 'logout' %} " >
           {% csrf_token %}
         <input type="submit" value="Logout">

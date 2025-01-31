@@ -1,11 +1,11 @@
 {% extends 'app/base.html' %}
 {% block content %}
     <h1>Edit Comment</h1>
-    <form action="{% url 'messageupdate' memorial.pk object.pk %}" method="POST" class="formm">
+    <form action="{% url 'Messageupdate' memorial.pk object.pk %}" method="POST" class="formm">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Update" class="input_button">
-    <a href="{% url 'Memorialdetail' Memorial.pk %}" class="input_button">Cancel</a>
+    <a href="{% url 'Memorialdetail' memorial.pk %}" class="input_button">Cancel</a>
 </form>
 
 {%  endblock content %}

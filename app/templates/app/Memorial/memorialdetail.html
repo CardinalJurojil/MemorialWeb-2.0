@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/memorial.css' %}">
 
 
 <div class="memorial-entry">
@@ -19,11 +19,14 @@
 <a href="{% url 'Memorialupdate' memorial.pk %}">Edit</a>
 <a href="{% url 'Memorialdelete' memorial.pk %}">Delete Blog</a>
 
+<h3>Photos</h3>
+
 <div class="photo-gallery">
-    <h3>Photos</h3>
+
     {% for photo in memorial.photos.all %}
         <div class="photo-entry">
             {% if photo.image %}
+            {{user.username}}
                 <img src="{{ photo.image.url }}">
                 <a href="{% url 'Photoupdate' memorial.pk photo.pk %}">Edit Photo</a>
                 <a href="{% url 'Photodelete' memorial.pk photo.pk %}">Delete Photo</a>
@@ -35,6 +38,8 @@
 </div>
 
 <a href="{% url 'addphoto' memorial.pk %}">Add Photo</a>
+
+
 
  <form method="POST" action="{% url 'Messagecreate' memorial.pk %}">
             {% csrf_token %}
@@ -48,12 +53,17 @@
             <p>No Message </p>
         {% endif %}
         {% for message in memorial.messages.all %}
-            <hr>
+        <div class="message">
             <p><strong>{{ message.user }}</strong> - {{ message.dateposted }}</p>
             <p>{{ message.content }}</p>
+
             <a href="{% url 'Messageupdate' memorial.pk message.pk %}" class="btn">Edit Message</a>
             <a href="{% url 'Messagedelete' memorial.pk message.pk %}" class="btn">Delete Message</a>
-        {% endfor %}
+        </div>
+    {% empty %}
+        <p>No messages available.</p>
+    {% endfor %}
+
 
 {% endblock content %}
 

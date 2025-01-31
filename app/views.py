@@ -13,7 +13,6 @@ from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-
 class HomePageView(TemplateView):
     template_name = 'app/home.html'
 
@@ -37,8 +36,12 @@ class MemorialListView(ListView):
 
 class MemorialDetailView(DetailView):
     model = Memorial
-    context_object_name = 'memorial'
     template_name = 'app/Memorial/memorialdetail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['messages'] = self.object.messages.all()  # Get all messages related to this memorial
+        return context
 
 class MemorialCreateView(CreateView):
     model = Memorial
@@ -81,7 +84,7 @@ class AddPhotoView(CreateView):
 
 class PhotoUpdateView(UpdateView):
         model = Photo
-        fields = ['image', 'datepost']
+        fields = ['image']
         template_name = 'app/Photo/photoupdate.html'
 
         def get_queryset(self):
@@ -143,5 +146,7 @@ class MessageDeleteView(DeleteView):
     def get_success_url(self):
         # Redirect to the memorial's detail page after deleting the message
         return reverse_lazy('Memorialdetail', kwargs={'pk': self.kwargs['memorial_pk']})
+
+
 
 

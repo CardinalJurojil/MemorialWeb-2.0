@@ -6,6 +6,7 @@ from .views import MemorialListView,MemorialDetailView, MemorialCreateView, Memo
 from .views import AddPhotoView, PhotoUpdateView, PhotoDeleteView
 from .views import MessageCreateView, MessageUpdateView, MessageDeleteView
 
+
 urlpatterns =[
 
     path('', HomePageView.as_view(), name ='home'),
@@ -29,7 +30,10 @@ urlpatterns =[
     path('Memorial/<int:memorial_pk>/Message/<int:pk>/update', MessageUpdateView.as_view(), name='Messageupdate'),
     path('Memorial/<int:memorial_pk>/Message/<int:pk>/delete', MessageDeleteView.as_view(), name='Messagedelete'),
 
+
+
      ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 
 

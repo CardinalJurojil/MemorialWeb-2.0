@@ -3,30 +3,10 @@ from django.db import models
 from django.urls import reverse
 from django.template.context_processors import static
 from django.template.context_processors import media
-from django.contrib.auth.models import User
 from django.conf import settings
+from django.views.generic.dates import timezone_today
 
 
-# class User(models.Model):
-#     userid = models.AutoField(primary_key=True)
-#     username = models.CharField(max_length=20, unique=True)
-#     firstname = models.CharField(max_length=20)
-#     lastname = models.CharField(max_length=20)
-#     email = models.EmailField(unique=True)
-#     password = models.CharField(max_length=100)
-#
-#     def __str__(self):
-#             return str (self.username)
-
-
-class Profile(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
-    bio = models.TextField()
-    profilepic =  models.ImageField(null=True, blank=True, upload_to='images/')
-
-    def __str__(self):
-        return f"{self.profilepic} {self.user}"
 
 class Tag(models.Model):
     # memorial = models.ForeignKey('Memorial', on_delete=models.CASCADE)
@@ -68,18 +48,15 @@ class Photo(models.Model):
         return str(self.image)
 
 
-
-
 class Message(models.Model):
     messageid = models.AutoField(primary_key=True)
-    memorial = models.ForeignKey(Memorial, on_delete=models.CASCADE)
+    memorial = models.ForeignKey(Memorial, related_name='messages',on_delete= models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null = True)
     content = models.TextField()
     dateposted = models.DateTimeField(auto_now_add=True, null=True)
 
-
     def __str__(self):
-        return str (self.content)
+        return '%s  %s - %s' % (self.memorial.firstname, self.memorial.lastname, self.user)
 
 
 
