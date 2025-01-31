@@ -3,7 +3,7 @@
 
 {% block content %}
       <h1> New Post</h1>
-        <form action="{% url 'Memorialdelete' object.pk %}" method="post" >
+        <form action="{% url 'Memorialdelete' object.pk %}" method="post" class="formm" >
             {% csrf_token %}
             {{form.as_p}}
             <p>Are you sure you want to delete? {{memorial.firstname }}{{memorial.lastname}}</p>

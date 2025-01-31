@@ -5,39 +5,39 @@
 <link rel="stylesheet" href="{% static 'css/memorial.css' %}">
 
 
-<div class="memorial-entry">
+<div class="product-card">
     <h2>{{ memorial.firstname }} {{ memorial.lastname }}</h2>
     <p>{{ memorial.biography }}</p>
     {% if memorial.image %}
-        <img src="{{ memorial.image.url }}" alt="{{ memorial.firstname }} {{ memorial.lastname }}">
+        <img src="{{ memorial.image.url }}" >
     {% else %}
         <p>No image</p>
     {% endif %}
 </div>
 
 
-<a href="{% url 'Memorialupdate' memorial.pk %}">Edit</a>
-<a href="{% url 'Memorialdelete' memorial.pk %}">Delete Blog</a>
+<a href="{% url 'Memorialupdate' memorial.pk %}" class="add_button">Edit</a>
+<a href="{% url 'Memorialdelete' memorial.pk %}" class="add_button">Delete Memorial</a>
 
-<h3>Photos</h3>
+<h3 class="add_button">Photos</h3>
 
 <div class="photo-gallery">
 
     {% for photo in memorial.photos.all %}
-        <div class="photo-entry">
+        <div class="product-card">
             {% if photo.image %}
-            {{user.username}}
+            <h2>{{user.username}}</h2>
                 <img src="{{ photo.image.url }}">
-                <a href="{% url 'Photoupdate' memorial.pk photo.pk %}">Edit Photo</a>
-                <a href="{% url 'Photodelete' memorial.pk photo.pk %}">Delete Photo</a>
+                <a href="{% url 'Photoupdate' memorial.pk photo.pk %}" class="anchor">Edit Photo</a>
+                <a href="{% url 'Photodelete' memorial.pk photo.pk %}" class="anchor">Delete Photo</a>
             {% else %}
-                <p>No image available</p>
+
             {% endif %}
         </div>
     {% endfor %}
 </div>
 
-<a href="{% url 'addphoto' memorial.pk %}">Add Photo</a>
+<a href="{% url 'addphoto' memorial.pk %}" class="add_button">Add Photo</a>
 
 
 

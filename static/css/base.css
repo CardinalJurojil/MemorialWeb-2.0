@@ -1,52 +1,315 @@
-/* General Reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* Styling for the main profile details container */
+.formmm {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Heading styling */
+.formmm h2 {
+  font-size: 28px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+/* Profile picture styling */
+.formmm img {
+  border-radius: 50%;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+}
+
+/* Styling for profile details text */
+.formmm p {
+  font-size: 16px;
+  color: gray;
+  margin: 5px 0;
+}
+
+.formmm p strong {
+  color: black;
+}
+/* Styling for buttons */
+.input_button {
+  display: inline-block;
+  margin: 10px 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #007bff; /* Blue color */
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.input_button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Ensure images without URLs still render */
+.formmm img[alt="Default Profile Picture"] {
+  content: url('/profile_pics'); /* Replace with path to your default image */
+  opacity: 0.6;
+}
 header {
   margin: 0;
   padding: 0;
 }
 
-/* Header Styling */
+
 header {
-  background-color: #8B4513; /* Brown background */
+  background-color: #8B4513;
   padding: 10px 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow under the header */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Unordered List Styling */
+
 header ul {
-  list-style-type: none; /* Remove bullet points */
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex; /* Make navigation items horizontal */
-  justify-content: center; /* Center items horizontally */
-  align-items: center; /* Align items vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* List Item Styling */
 header ul li {
-  margin: 0 15px; /* Space between navigation links */
+  margin: 0 15px;
 }
 
 /* Anchor Links */
 header ul li a {
-  text-decoration: none; /* Remove underline */
-  color: white; /* White text color */
-  font-size: 16px; /* Font size */
-  font-weight: bold; /* Bold text */
-  padding: 8px 12px; /* Padding inside the link */
-  border-radius: 5px; /* Slightly rounded corners */
-  transition: background-color 0.3s, color 0.3s; /* Smooth hover transition */
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Hover Effect */
 header ul li a:hover {
-  background-color: #5E322E; /* Darker brown on hover */
-  color: #FFD700; /* Golden text on hover */
+  background-color: #5E322E;
+  color: #FFD700;
 }
 
-/* Active Link Style (Optional) */
-/* You can add an 'active' class to the link in your template and style it here */
+
 header ul li a.active {
-  background-color: #FFD700; /* Golden background for active page */
-  color: #4D2600; /* Dark brown text color */
+  background-color: #FFD700;
+  color: #4D2600;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+
+.text {
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+.text h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+.text h2:hover {
+  color: #555;
+  transition: color 0.3s ease-in-out;
+}
+
+
+.login {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Login heading styling */
+h2 {
+  text-align: center;
+  color: #333333;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Label styling */
+.container label {
+  font-size: 14px;
+  color: #555555;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Input field styling */
+.container input[type="text"],
+.container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Focus effect for inputs */
+.container input[type="text"]:focus,
+.container input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #007bff; /* Blue color */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 5px; /* Rounded button */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* Hover effect for the submit button */
+input[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Register (link styled as button) styling */
+a.input_button {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745; /* Green color */
+  color: #ffffff; /* White text for visibility */
+  text-decoration: none;
+  border-radius: 5px; /* Rounded button */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* Hover effect for Register button */
+a.input_button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+.formm {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+.add_button {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #ECEBDE;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: #A59D84;
+    transition: background-color 0.3s ease;
+}
+
+.add_button:hover {
+    background-color: #C1BAA1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.anchor {
+    display: inline-block;
+    text-decoration: none;
+    color: #ECEBDE;
+    padding: 10px 20px;
+    background-color: #A59D84;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.anchor:hover {
+    color: #ECDFCC;
+    background-color: #C1BAA1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+input[type="password"],
+input[type="email"],
+select {
+    width: 96%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.product-card {
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #C1BAA1;
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 1.0s;
+}
+
+.product-card img:hover {
+    transform: scale(0.9);
+}
+
+.product-card h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.close {
+    padding: 0 0 0 0;
+    margin: auto;
+    float: right;
+    background-color: #C1BAA1;
+    text-decoration: none;
+    color: #ECEBDE;
+    transition: background-color 0.3s ease;
 }
 

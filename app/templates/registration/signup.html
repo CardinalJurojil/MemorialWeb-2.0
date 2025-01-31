@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
-<h2>Login</h2>
+<h2 style="color: white">Login</h2>
 
-<form method="post">
+<form method="post" class="formm">
   {% csrf_token %}
   <div class="container">
     <label for="username">Username</label>
@@ -19,6 +19,6 @@
     <input type="password" placeholder="Re-enter Your Password" name="password2" required>
 
   </div>
-  <button type="submit">Log In</button>
+  <input type="submit" value="Login">
 </form>
 {% endblock content %}

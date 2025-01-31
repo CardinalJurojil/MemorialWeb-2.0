@@ -3,7 +3,7 @@
 
 {% block content %}
 <h1>Update Photos</h1>
-<form action="{% url 'Photoupdate' memorial_pk=memorial.pk pk=object.pk %}" method="post" enctype="multipart/form-data">
+<form action="{% url 'Photoupdate' memorial_pk=memorial.pk pk=object.pk %}" method="post" enctype="multipart/form-data" class="formm">
     {% csrf_token %}
 
     <div>

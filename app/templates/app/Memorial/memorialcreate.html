@@ -4,7 +4,7 @@
 {% block content %}
     <title>New Post</title>
 
-    <form action="{% url 'Memorialcreate' %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'Memorialcreate' %}" method="post" enctype="multipart/form-data" class="formm">
         {% csrf_token %}
 
         <h1>NEW MEMORIAL</h1>

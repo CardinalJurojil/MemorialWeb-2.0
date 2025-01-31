@@ -100,10 +100,15 @@ class PhotoUpdateView(UpdateView):
 
         def get_success_url(self):
             return reverse('Memorialdetail', kwargs={'pk': self.object.memorial.pk})
+
 class PhotoDeleteView(DeleteView):
     model = Photo
     template_name = 'app/Photo/photodelete.html'
-    success_url = reverse_lazy('Photo')
+
+    def get_success_url(self):
+        # Redirect to the correct 'memorial_detail' named pattern
+        return reverse_lazy('Memorialdetail', kwargs={'pk': self.kwargs['memorial_pk']})
+
 
 
 #MESSAGE

@@ -1,10 +1,6 @@
-{% extends 'app/base.html' %}
-{% load static %}
-
+{% extends "app/base.html" %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
-
-<div class="formmm">
+<div class="formm">
   <h2 style="color: gray;">Profile Details:</h2>
   {% if user.image %}
                 <img src="{{ user.image.url }}" alt="Profile Picture" height="150" width="150" style="border-radius: 50%">
@@ -21,6 +17,4 @@
   <a href="{% url 'profileedit' %}" class="input_button">Edit Profile</a>
   <a href="{% url 'profiledelete' %}" class="input_button">Delete Account</a>
 </div>
-
-
-{% endblock content %}
+{% endblock %}

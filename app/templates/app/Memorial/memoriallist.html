@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block content %}
-<a href="{% url 'Memorialcreate' %}">+ New Blog Post</a>
+
+<a href="{% url 'Memorialcreate' %}" class="add_button">+ New Memorial</a>
 
 <link rel="stylesheet" href="{% static 'css/memorial.css' %}">
 
@@ -20,9 +21,9 @@
         <div class="post-container ">
 
              <h3 class="memorial-entry">
-                           <a href="{% url 'Memorialdetail' memorial.pk %}">{{ memorial.firstname }},{{ memorial.lastname }}</a>
+                 <a href="{% url 'Memorialdetail' memorial.pk %}">{{ memorial.firstname }},{{ memorial.lastname }}</a>
                         {% if memorial.image %}
-                           <img src="{{memorial.image.url}}" alt="{{memorial.firstname}}., {{memorial.lastname}}">
+                           <img src="{{memorial.image.url}}">
                        {%else %}
                             <p>No Image</p>
                         {% endif%}

@@ -2,9 +2,11 @@
 {% load static %}
 
 {% block content %}
-<h2>Login</h2>
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
 
-<form method="post">
+<h2>Login</h2>
+<div clas="login">
+<form method="post" class="formm">
   {% csrf_token %}
   <div class="container">
     <label for="username">Username</label>
@@ -16,5 +18,8 @@
 
   </div>
   <input type="submit" value="Submit">
+  <a href="{% url 'signup' %}" class="input_button">Register</a>
 </form>
+</div>
+
 {% endblock content %}

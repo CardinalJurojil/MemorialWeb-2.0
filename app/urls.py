@@ -21,7 +21,7 @@ urlpatterns =[
     path('Memorial/<int:pk>/delete', MemorialDeleteView.as_view(), name='Memorialdelete'),
 
     # Photo
-    path('Memorial/<int:pk>/addphoto/', AddPhotoView.as_view(), name='addphoto'),
+    path('Memorial/<int:pk>/Photos/', AddPhotoView.as_view(), name='addphoto'),
     path('Memorial/<int:memorial_pk>/Photo/<int:pk>/update/', PhotoUpdateView.as_view(), name='Photoupdate'),
     path('Memorial/<int:memorial_pk>/Photo/<int:pk>/delete/', PhotoDeleteView.as_view(), name='Photodelete'),
 

@@ -5,8 +5,19 @@
    <li><a href="{% url 'home'%}">HOME </a></li>
    <li> <a href="{% url 'about'%}">ABOUT </a> </li>
    <li> <a href="{% url 'Memorial'%}">MEMORIAL </a> </li>
-   <li> <a href="{% url 'login'%}">LOGIN </a> </li>
-   <li> <a href="{% url 'signup'%}">SIGNUP </a> </li>
+<!--   <li> <a href="{% url 'login'%}">LOGIN </a> </li>-->
+<!--   <li> <a href="{% url 'signup'%}">SIGNUP </a> </li>-->
+         {% if user.is_authenticated %}
+                    <li>
+                        <form action="{% url 'logout' %}" method="post" class="logout-form">
+                            {% csrf_token %}
+                            <input type="submit" value="Logout" class="nav-link" style="color: white; background: #1f2937; cursor: pointer">
+                        </form>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+                    <li><a href="{% url 'signup' %}" class="nav-link">Sign Up</a></li>
+                {% endif %}
 
     </ul>
 

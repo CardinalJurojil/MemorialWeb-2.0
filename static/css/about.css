@@ -1,0 +1,48 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7; /* Light background for a soothing feel */
+}
+
+/* Styling for the main text container */
+.text {
+  background-color: #ffffff; /* White background for content block */
+  max-width: 800px;
+  margin: 50px auto; /* Center the content */
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center;
+}
+
+/* Heading styles */
+.text h1 {
+  font-size: 36px;
+  color: #333333; /* Dark grey color for emphasis */
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Capitalize heading for prominence */
+  letter-spacing: 1px; /* Slight spacing for better clarity */
+}
+
+/* Paragraph styles */
+.text p {
+  font-size: 18px;
+  color: #555555; /* Medium grey color for readability */
+  line-height: 1.6; /* Improve readability with proper line spacing */
+  margin-bottom: 15px;
+  text-align: justify; /* Align text for a clean look */
+  font-family: "Georgia", serif; /* Add a classic serif font for elegance */
+}
+
+/* Paragraph final touch styling */
+.text p:last-of-type {
+  margin-bottom: 0; /* Remove margin from the last paragraph to maintain balance */
+}
+
+/* Add hover effects for interactive aesthetics */
+.text:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow when hovered */
+  transition: box-shadow 0.3s ease-in-out;
+}

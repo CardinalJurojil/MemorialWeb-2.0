@@ -2,13 +2,10 @@
 {% load static %}
 
 {% block content %}
-      <h1> New Post</h1>
-        <form action="{% url 'Phototdelete' object.pk %}" method="post" >
-            {% csrf_token %}
-            {{form.as_p}}
-            <p>Are you sure you want to delete photo all the photo?</p>
-            <input type = "submit" value="Confirm">
-
-
-        </form>
+      <h1>Delete Photo</h1>
+    <form action="{% url 'Photodelete' memorial_pk=object.memorial.pk pk=object.pk %}" method="post" class="formm">
+        {% csrf_token %}
+        <p>Are you sure you want to delete this photo?</p>
+        <input type="submit" value="Confirm">
+    </form>
 {% endblock content %}
